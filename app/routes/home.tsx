@@ -1,13 +1,19 @@
-import type { MetaFunction } from "@remix-run/cloudflare";
+import type { LoaderFunction, MetaFunction } from '@remix-run/cloudflare'
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
-  ];
-};
+    { title: 'New Remix App' },
+    { name: 'description', content: 'Welcome to Remix!' },
+  ]
+}
 
-export default function Index() {
+export const loader: LoaderFunction = ({ context }) => {
+  console.log(context.cloudflare.env.SOME_SECRET)
+
+  return null
+}
+
+export default function Home() {
   return (
     <div className="flex h-screen items-center justify-center">
       <div className="flex flex-col items-center gap-16">
@@ -50,13 +56,13 @@ export default function Index() {
         </nav>
       </div>
     </div>
-  );
+  )
 }
 
 const resources = [
   {
-    href: "https://remix.run/start/quickstart",
-    text: "Quick Start (5 min)",
+    href: 'https://remix.run/start/quickstart',
+    text: 'Quick Start (5 min)',
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -76,8 +82,8 @@ const resources = [
     ),
   },
   {
-    href: "https://remix.run/start/tutorial",
-    text: "Tutorial (30 min)",
+    href: 'https://remix.run/start/tutorial',
+    text: 'Tutorial (30 min)',
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -97,8 +103,8 @@ const resources = [
     ),
   },
   {
-    href: "https://remix.run/docs",
-    text: "Remix Docs",
+    href: 'https://remix.run/docs',
+    text: 'Remix Docs',
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -117,8 +123,8 @@ const resources = [
     ),
   },
   {
-    href: "https://rmx.as/discord",
-    text: "Join Discord",
+    href: 'https://rmx.as/discord',
+    text: 'Join Discord',
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -135,4 +141,4 @@ const resources = [
       </svg>
     ),
   },
-];
+]
