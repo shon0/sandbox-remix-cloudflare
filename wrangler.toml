@@ -9,3 +9,9 @@ assets = { directory = "./build/client" }
 # Configuration: https://developers.cloudflare.com/workers/observability/logs/workers-logs/#enable-workers-logs
 [observability]
 enabled = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "sandbox-remix-cloudflare"
+database_id = "eefc8f66-db64-4c76-8bd1-826fffb11de5"
+migrations_dir = "./migrations"

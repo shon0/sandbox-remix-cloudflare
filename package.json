@@ -12,7 +12,12 @@
     "typecheck": "tsc",
     "typegen": "wrangler types",
     "preview": "pnpm run build && wrangler dev",
-    "cf-typegen": "wrangler types"
+    "cf-typegen": "wrangler types",
+    "db:seed": "wrangler d1 execute sandbox-remix-cloudflare --local --file=./seed.sql",
+    "db:migration:create": "wrangler d1 migrations create sandbox-remix-cloudflare",
+    "db:migration:apply": "wrangler d1 migrations apply sandbox-remix-cloudflare",
+    "db:migration:list": "wrangler d1 migrations list sandbox-remix-cloudflare",
+    "db:setup": "pnpm run db:migration:apply && pnpm run db:seed"
   },
   "dependencies": {
     "@remix-run/cloudflare": "^2.14.0",

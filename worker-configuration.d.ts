@@ -2,4 +2,7 @@
 
 interface Env {
 	SOME_SECRET: string;
+	DATABASE_NAME: string;
+	DATABASE_ID: string;
+	DB: D1Database;
 }
